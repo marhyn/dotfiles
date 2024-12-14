@@ -14,7 +14,11 @@ return {
     require("oil").setup({
       columns = {
         "icon"
-      }
+      },
+  view_options = {
+    -- Show files and directories that start with "."
+    show_hidden = true,
+},
     })
   end,
   -- Optional dependencies
