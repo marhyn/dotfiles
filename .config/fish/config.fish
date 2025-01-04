@@ -10,3 +10,6 @@ set -x NVM_DIR ~/.nvm
 nvm use default --silent
 
 alias pa="php artisan"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/marhyn/google-cloud-sdk/path.fish.inc' ]; . '/Users/marhyn/google-cloud-sdk/path.fish.inc'; end
