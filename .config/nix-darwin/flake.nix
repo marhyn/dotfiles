@@ -31,10 +31,12 @@
         [
           pkgs.neovim
           pkgs.yadm
-          pkgs.fira-code-nerdfont
+          pkgs.nerd-fonts.fira-code
+          pkgs.nerd-fonts.jetbrains-mono
           pkgs.zoxide
           pkgs.mkalias
           pkgs.oh-my-posh
+          pkgs.obsidian
         ];
 
       # Necessary for using flakes on this system.
@@ -51,6 +53,7 @@
               "aerospace"
           ];
       };
+
 
 system.activationScripts.applications.text = let
   env = pkgs.buildEnv {
@@ -71,6 +74,8 @@ in
     ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
   done
       '';
+
+      nixpkgs.config.allowUnfree = true;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
