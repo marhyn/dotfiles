@@ -37,6 +37,7 @@
           pkgs.mkalias
           pkgs.oh-my-posh
           pkgs.obsidian
+          pkgs.podman
         ];
 
       # Necessary for using flakes on this system.
@@ -47,12 +48,33 @@
       #
       homebrew = {
           enable = true;
+          brews = [
+            "mas"
+          ];
+          masApps = {
+            "TickTick" = 966085870;
+          };
           casks = [
               "ghostty"
+              "tidal"
               "raycast"
               "aerospace"
           ];
       };
+system.activationScripts.extraActivation = {
+  text = ''
+    if [ ! -d "$HOME/.nvm" ]; then
+      echo "Installing nvm..."
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+    else
+      echo "nvm already installed..."
+    fi
+
+    export NVM_DIR="$HOME/.nvm"
+    # shellcheck disable=SC1091
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  '';
+};
 
 
 system.activationScripts.applications.text = let
@@ -113,4 +135,5 @@ in
       ];
     };
   };
+
 }
