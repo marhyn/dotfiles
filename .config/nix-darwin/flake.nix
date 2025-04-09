@@ -38,6 +38,8 @@
           pkgs.oh-my-posh
           pkgs.obsidian
           pkgs.podman
+          pkgs.slack
+          pkgs.slack-term
         ];
 
       # Necessary for using flakes on this system.
