@@ -39,6 +39,7 @@
           pkgs.obsidian
           pkgs.podman
           pkgs.slack
+          pkgs.gimp
           pkgs.slack-term
         ];
 
