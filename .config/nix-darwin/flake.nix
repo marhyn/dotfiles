@@ -41,6 +41,7 @@
           pkgs.slack
           pkgs.gimp
           pkgs.slack-term
+          pkgs.spotify-qt
         ];
 
       # Necessary for using flakes on this system.
@@ -54,6 +55,17 @@
           brews = [
             "mas"
           ];
+          taps = [
+            "codecrafters-io/tap"
+            "felixkratz/formulae"
+            "homebrew/bundle"
+            "homebrew/cask-versions"
+            "homebrew/services"
+            "nicoverbruggen/cask"
+            "nikitabobko/tap"
+            "shivammathur/php"
+            "tinygo-org/tools"
+          ];
           masApps = {
             "TickTick" = 966085870;
           };
@@ -62,7 +74,13 @@
               "tidal"
               "raycast"
               "aerospace"
+              "librespot"
           ];
+          # onActivation = {
+          #     autoUpdate = true;
+          #     cleanup = "uninstall";
+          #     upgrade = true;
+          # };
       };
 system.activationScripts.extraActivation = {
   text = ''

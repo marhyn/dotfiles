@@ -1,1 +1,12 @@
 font-family=JetBrainsMono Nerd Font Mono
+# Reduce GPU churn
+window-vsync = true
+cursor-style = block
+
+# Font rendering cost
+font-thicken = false
+font-feature = false
+
+# Reduce redraws
+scrollback-limit = 5000
+
