@@ -39,7 +39,6 @@
           pkgs.obsidian
           pkgs.podman
           pkgs.slack
-          pkgs.gimp
           pkgs.slack-term
           pkgs.spotify-qt
         ];
@@ -102,7 +101,7 @@ system.activationScripts.applications.text = let
   env = pkgs.buildEnv {
     name = "system-applications";
     paths = config.environment.systemPackages;
-    pathsToLink = "/Applications";
+    pathsToLink = [ "/Applications" ];
   };
 in
   pkgs.lib.mkForce ''
@@ -126,6 +125,8 @@ in
       # Used for backwards compatibility, please read the changelog before changing.
       # $ darwin-rebuild changelog
       system.stateVersion = 5;
+
+      system.primaryUser = "marhyn";
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
